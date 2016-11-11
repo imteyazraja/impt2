@@ -1,0 +1,4 @@
+define([
+    './mainController',
+    './budgetController'
+], function () {});

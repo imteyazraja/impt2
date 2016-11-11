@@ -1,0 +1,59 @@
+<?php 
+session_start();
+
+$_SESSION['authToken'] = 1;
+$_SESSION['empcode'] = 10000760;
+$_SESSION['empname'] = "Imteyaz Raja";
+require_once("budget_services/libs/samlGenerator.php");
+require_once("budget_services/libs/mcryptkeyGen.php");
+require_once("budget_services/libs/utility.php");
+
+
+
+ $auth_flag = 0;
+
+
+ $auth_flag = 1; 
+ 
+ $parent = str_replace("index.html","",$_SERVER['PHP_SELF']);
+ $min_pkg_tier1 = 12000;
+ $min_pkg_remote = 6000;
+ $min_pdg_tier1 = 12000;
+ $min_pdg_remote = 6000; 
+?> 
+ 
+ 
+<!DOCTYPE html>
+<html lang="en">
+	<head> 
+		<meta charset="utf-8"> 
+		<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0"> 
+		<base href="<?=$parent;?>"> <title>Justdial Limited</title> 
+		<link rel="stylesheet" href="css/app.css?ver=1.6.1"/> 
+		<link rel="stylesheet" href="css/jquery-ui-1.9.2.custom.css"/> 
+		<link rel="stylesheet" href="css/angular-material.min.css"/> 
+		<script>
+			var UCODE	=	'10000760';
+			var UNAME	=	'Imteyaz Raja';
+			var IP_ADDRESS	=	'172.29.87.127';
+			var AUTH_USER	=	1;
+			var MIN_PKG_TIER1	= '<?=$min_pkg_tier1;?>';
+			var MIN_PKG_REMOTE = '<?=$min_pkg_remote;?>';
+			var MIN_PDG_TIER1	= '<?=$min_pdg_tier1;?>';
+			var MIN_PDG_REMOTE = '<?=$min_pdg_remote;?>';
+			var SSO_LOGOUT	=	'http://accounts.justdial.com/logout/logoutServiceAuth';
+		</script>
+	</head>
+	<body>
+		<div butterbar class="showLoad">
+			<div layout="row" layout-sm="column" layout-align="space-around"> 
+				<img src="img/facebook.gif" /> 
+			</div> 
+		</div> 
+		<div class="ui-view-container" ng-controller="mainController"> 
+			<div ui-view="initload"></div> 
+		</div> 
+		<script src="bower_components/require.js" data-main="js/main.js"></script> 
+	</body> 
+</html>
+

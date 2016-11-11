@@ -1,0 +1,79 @@
+<md-dialog aria-label="Categories">
+   <md-toolbar>
+      <div class="md-toolbar-tools">
+         <h2 ng-if="updatedCampaign == 'Package'" style="color:#FFFFFF"> GENIO Campaign Budget Update - Package</h2>
+         <h2 ng-if="updatedCampaign == 'PDG'" style="color:#FFFFFF"> GENIO Campaign Budget Update - PDG</h2>
+         <h2 ng-if="updatedCampaign == 'Banner'" style="color:#FFFFFF"> GENIO Campaign Budget Update - Banner</h2>
+         <h2 ng-if="updatedCampaign == 'JDRR'" style="color:#FFFFFF"> GENIO Campaign Budget Update - JDRR</h2>
+         <h2 ng-if="updatedCampaign == 'National Listing'" style="color:#FFFFFF"> GENIO Campaign Budget Update - National Listing</h2>
+         <span flex></span> 
+      </div>
+   </md-toolbar>
+   <md-dialog-content>
+      <div ng-if="updatedCampaign == 'Package'">
+         <div layout="row" layout-sm="column" layout-align="space-around" ng-if="showLoader==1">
+            <md-progress-circular class="md-hue-2" md-mode="indeterminate"></md-progress-circular>
+         </div>
+         <br> 
+         <div layout="row" layout-sm="column" layout-align="space-around" > &nbsp;Package Budget updated successfully.&nbsp; </div>
+         <br> 
+         <div layout="column" layout-sm="column" layout-align="space-around">
+            <div layout="row" layout-sm="column" layout-align="space-around">
+               <md-button class="md-raised md-accent" ng-click="hide()">OK</md-button>
+            </div>
+         </div>
+      </div>
+      <div ng-if="updatedCampaign == 'PDG'">
+         <div layout="row" layout-sm="column" layout-align="space-around" ng-if="showLoader==1">
+            <md-progress-circular class="md-hue-2" md-mode="indeterminate"></md-progress-circular>
+         </div>
+         <br> 
+         <div layout="row" layout-sm="column" layout-align="space-around" > &nbsp;PDG Budget updated successfully.&nbsp; </div>
+         <br> 
+         <div layout="column" layout-sm="column" layout-align="space-around">
+            <div layout="row" layout-sm="column" layout-align="space-around">
+               <md-button class="md-raised md-accent" ng-click="hide()">OK</md-button>
+            </div>
+         </div>
+      </div>
+      <div ng-if="updatedCampaign == 'Banner'">
+         <div layout="row" layout-sm="column" layout-align="space-around" ng-if="showLoader==1">
+            <md-progress-circular class="md-hue-2" md-mode="indeterminate"></md-progress-circular>
+         </div>
+         <br> 
+         <div layout="row" layout-sm="column" layout-align="space-around" > &nbsp;Banner Budget updated successfully.&nbsp; </div>
+         <br> 
+         <div layout="column" layout-sm="column" layout-align="space-around">
+            <div layout="row" layout-sm="column" layout-align="space-around">
+               <md-button class="md-raised md-accent" ng-click="hide()">OK</md-button>
+            </div>
+         </div>
+      </div>
+      <div ng-if="updatedCampaign == 'JDRR'">
+         <div layout="row" layout-sm="column" layout-align="space-around" ng-if="showLoader==1">
+            <md-progress-circular class="md-hue-2" md-mode="indeterminate"></md-progress-circular>
+         </div>
+         <br> 
+         <div layout="row" layout-sm="column" layout-align="space-around" > &nbsp;JDRR Budget updated successfully.&nbsp; </div>
+         <br> 
+         <div layout="column" layout-sm="column" layout-align="space-around">
+            <div layout="row" layout-sm="column" layout-align="space-around">
+               <md-button class="md-raised md-accent" ng-click="hide()">OK</md-button>
+            </div>
+         </div>
+      </div>
+      <div ng-if="updatedCampaign == 'National Listing'">
+         <div layout="row" layout-sm="column" layout-align="space-around" ng-if="showLoader==1">
+            <md-progress-circular class="md-hue-2" md-mode="indeterminate"></md-progress-circular>
+         </div>
+         <br> 
+         <div layout="row" layout-sm="column" layout-align="space-around" > &nbsp;National Listing Budget updated successfully.&nbsp; </div>
+         <br> 
+         <div layout="column" layout-sm="column" layout-align="space-around">
+            <div layout="row" layout-sm="column" layout-align="space-around">
+               <md-button class="md-raised md-accent" ng-click="hide()">OK</md-button>
+            </div>
+         </div>
+      </div>
+   </md-dialog-content>
+</md-dialog>

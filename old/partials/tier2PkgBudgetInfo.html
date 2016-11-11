@@ -1,0 +1,50 @@
+<md-dialog aria-label="BudgetLog" class="pkgLogCls">
+   <md-toolbar>
+      <div class="md-toolbar-tools">
+         <h2 style="color:#FFFFFF">Package Tier 2 Budget</h2>
+         <span flex></span> 
+         <md-input-container md-no-float class="md-accent" flex="50" style="padding-bottom:0px;margin-left:10px">
+            <md-icon style="color:wheat" class="material-icons"><img src="img/search.png" alt="Search"/></md-icon>
+            <input ng-model="searchT2Pkg" placeholder="Search here" style="color:wheat;width:500px;"> 
+            <div style="float:right"><img alt="Search" src="img/closeWhite.png" class="cursorCls" ng-click="hide()"></div>
+         </md-input-container>
+      </div>
+   </md-toolbar>
+   <md-dialog-content>
+      <div ng-if="pkgT2BudgetHtml.errorcode == '0'">
+      <div layout="column" class="tableDiv">
+         <div layout="row" class="heading">
+            <div flex="15" class="text-center borderTakeLeft borderTop pad-top-5" ng-click="orderByField='city'; reverseSort = !reverseSort">City Name <span ng-show="orderByField == 'city'"> <span ng-show="!reverseSort">^</span> <span ng-show="reverseSort">v</span> </span> </div>
+            <div flex="15" class="text-center borderTake borderTop pad-top-5 pad-bot-5" ng-click="orderByField='zone'; reverseSort = !reverseSort">Zone Name <span ng-show="orderByField == 'zone'"> <span ng-show="!reverseSort">^</span> <span ng-show="reverseSort">v</span> </span> </div>
+            <div flex="15" class="text-center borderTake borderTop pad-top-5 pad-bot-5">Top 200 Budget</div>
+            <div flex="15" class="text-center borderTake borderTop pad-top-5 pad-bot-5">Normal Budget</div>
+            <div flex="20" class="text-center borderTake borderTop pad-top-5 pad-bot-5">Expiry One Yr Budget</div>
+            <div flex="20" class="text-center borderTake borderTop pad-top-5 pad-bot-5">Expiry Two Yr Budget</div>
+         </div>
+         <div layout="row" class="Row" ng-repeat="value in pkgT2BudgetHtml.data | orderBy:orderByField:reverseSort | filter: searchT2Pkg ">
+            <div flex="15" class="borderTakeLeft borderTop pad-top-5">&nbsp;{{value.city}}</div>
+            <div ng-if="value.zone =='ZNF'" flex="15" class="text-center borderTakeLeft borderTop pad-top-5">Zone Not Found</div>
+            <div ng-if="value.zone !='ZNF'" flex="15" class="text-center borderTakeLeft borderTop pad-top-5">{{value.zone}}</div>
+            <div flex="15" class="text-center borderTakeLeft borderTop pad-top-5">{{value.top}}</div>
+            <div flex="15" class="text-center borderTakeLeft borderTop pad-top-5">{{value.expten}}</div>
+            <div flex="20" class="text-center borderTakeLeft borderTop pad-top-5">{{value.exp1}}</div>
+            <div flex="20" class="text-center borderTakeLeft borderTop pad-top-5">{{value.exp2}}</div>
+         </div>
+         <div layout="column" layout-sm="column" layout-align="space-around">
+            <div layout="row" layout-sm="column" layout-align="space-around">
+               <md-button class="md-raised md-accent" ng-click="hide()">OK</md-button>
+            </div>
+         </div>
+      </div>
+      <div ng-if="pkgT2BudgetHtml.errorcode == '1'">
+         <br> 
+         <div layout="row" layout-sm="column" layout-align="space-around" > &nbsp;No Record Found.&nbsp; </div>
+         <br> 
+         <div layout="column" layout-sm="column" layout-align="space-around">
+            <div layout="row" layout-sm="column" layout-align="space-around">
+               <md-button class="md-raised md-accent" ng-click="hide()">OK</md-button>
+            </div>
+         </div>
+      </div>
+   </md-dialog-content>
+</md-dialog>

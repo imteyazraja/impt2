@@ -1,0 +1,48 @@
+<md-dialog aria-label="BudgetLog" class="pkgLogCls">
+   <md-toolbar>
+      <div class="md-toolbar-tools">
+         <h2 style="color:#FFFFFF">JDRR Budget Update Log</h2>
+         <span flex></span> 
+         <md-input-container md-no-float class="md-accent" flex="50" style="padding-bottom:0px;margin-left:10px">
+            <md-icon style="color:wheat" class="material-icons"><img src="img/search.png" alt="Search"/></md-icon>
+            <input ng-model="searchJdrrLog" placeholder="Search here" style="color:wheat;width:500px;"> 
+            <div style="float:right"><img alt="Search" src="img/closeWhite.png" class="cursorCls" ng-click="hide()"></div>
+         </md-input-container>
+      </div>
+   </md-toolbar>
+   <md-dialog-content>
+      <div ng-if="jdrrLogData.errorcode == '0'">
+         <div layout="column" class="tableDiv">
+            <div layout="row" class="heading">
+               <div flex="20" class="text-center borderTakeLeft borderTop pad-top-5">City Name</div>
+               <div flex="20" class="text-center borderTake borderTop pad-top-5 pad-bot-5">User Name</div>
+               <div flex="20" class="text-center borderTake borderTop pad-top-5 pad-bot-5">Update Date</div>
+               <div flex="40" class="text-center borderTake borderTop pad-top-5 pad-bot-5">History</div>
+            </div>
+            <div layout="row" class="Row" ng-repeat="data in jdrrLogData.data | filter: searchJdrrLog">
+               <div flex="20" class="borderTakeLeft borderTop pad-top-5">&nbsp;{{data.ct}}</div>
+               <div flex="20" class="text-center borderTakeLeft borderTop pad-top-5">{{data.un}}</div>
+               <div flex="20" class="text-center borderTakeLeft borderTop pad-top-5">{{data.dt}}</div>
+               <div flex="40" class="borderTakeLeft borderTop pad-top-5">
+                  <div ng-repeat="(key,value) in data.L"> <span class="logHdr">{{key}} Budget</span><br> <span class="marginLft20">Old : {{value.O}}</span></br> <span class="marginLft20">New : {{value.N}}</span> </div>
+               </div>
+            </div>
+         </div>
+         <div layout="column" layout-sm="column" layout-align="space-around">
+            <div layout="row" layout-sm="column" layout-align="space-around">
+               <md-button class="md-raised md-accent" ng-click="hide()">OK</md-button>
+            </div>
+         </div>
+      </div>
+      <div ng-if="jdrrLogData.errorcode == '1'">
+         <br> 
+         <div layout="row" layout-sm="column" layout-align="space-around" > &nbsp;No Log Found.&nbsp; </div>
+         <br> 
+         <div layout="column" layout-sm="column" layout-align="space-around">
+            <div layout="row" layout-sm="column" layout-align="space-around">
+               <md-button class="md-raised md-accent" ng-click="hide()">OK</md-button>
+            </div>
+         </div>
+      </div>
+   </md-dialog-content>
+</md-dialog>

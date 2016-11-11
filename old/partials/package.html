@@ -1,0 +1,779 @@
+<div class="width100">
+   <div class="floatLeft">
+      <section class="pkgContainter" subtract="500" style="align:left">
+         <div class="md-padding">
+            <div class="mar0auto width80">
+               <md-list-item>
+                  <p class="blue">Select City *</p>
+                  <select name="pkgCity" id="pkgCity" class="styled_select" ng-model="selPkgCity[0]" ng-change="setCity($event)">
+                     <option value="">Select</option>
+                     <option ng-repeat="city in pkgcitylist" value="{{city}}" >{{city}}</option>
+                  </select>
+               </md-list-item>
+               <div ng-if="pkgTier1Bdgt.errorcode == 0">
+                  <br> <!------------------------------------------------------ MUMBAI --------------------------------------------------------------> 
+                  <div ng-if="selectedCity == 'Mumbai'">
+                     <div class="md-title blue" layout="row" layout-align="space-around" >Category Wise Budget</div>
+                     <div>
+                        <md-list-item>
+                           <p class="blue">Top 200 Category Budget</p>
+                           <input type="text" numbersonly="numbersonly" class="txtBox" ng-model="pkgcattypeArr.Mumbai.top200" />	
+                        </md-list-item>
+                        <md-list-item>
+                           <p class="blue">Normal Category Budget</p>
+                           <input type="text" numbersonly="numbersonly" class="txtBox" ng-model="pkgcattypeArr.Mumbai.normal" />	
+                        </md-list-item>
+                     </div>
+                     <br> 
+                     <div class="md-title blue" layout="row" layout-align="space-around" >Package Expiry Budget</div>
+                     <div>
+                        <!-- <md-list-item> <p class="blue">Expire Package Tenure</p>	<input type="text" numbersonly="numbersonly" class="txtBox" ng-model="pkgexpireArr.Mumbai.expday" />	</md-list-item> --> 
+                        <md-list-item>
+                           <p class="blue">Expire Package 1 Year Budget</p>
+                           <input type="text" numbersonly="numbersonly" class="txtBox" ng-model="pkgexpireArr.Mumbai.exp1yrbdgt" />	
+                        </md-list-item>
+                        <md-list-item>
+                           <p class="blue">Expire Package 2 Year Budget</p>
+                           <input type="text" numbersonly="numbersonly" class="txtBox" ng-model="pkgexpireArr.Mumbai.exp2yrbdgt" />	
+                        </md-list-item>
+                     </div>
+                     <br> 
+                     <div class="md-title blue" layout="row" layout-align="space-around">Team Wise Budget</div>
+                     <div ng-repeat="(key,value) in pkgTier1Bdgt.data.Mumbai">
+                        <md-list-item>
+                           <p class="blue">{{pkgbdgtArr.Mumbai[key].teamnm}}</p>
+                           <input type="text" numbersonly="numbersonly" class="txtBox" ng-model="pkgbdgtArr.Mumbai[key].bdgt" />	
+                        </md-list-item>
+                     </div>
+                     <md-button ng-if="save_btn == '1'" class="md-fab addData" aria-label="Eat cake" ng-click="submitTier1Package($event)" style="font-weight:bold;">Save</md-button>
+                  </div>
+                  <!------------------------------------------------------ DELHI --------------------------------------------------------------> 
+                  <div ng-if="selectedCity == 'Delhi'">
+                     <div class="md-title blue" layout="row" layout-align="space-around" >Category Wise Budget</div>
+                     <div>
+                        <md-list-item>
+                           <p class="blue">Top 200 Category Budget</p>
+                           <input type="text" numbersonly="numbersonly" class="txtBox" ng-model="pkgcattypeArr.Delhi.top200" />	
+                        </md-list-item>
+                        <md-list-item>
+                           <p class="blue">Normal Category Budget</p>
+                           <input type="text" numbersonly="numbersonly" class="txtBox" ng-model="pkgcattypeArr.Delhi.normal" />	
+                        </md-list-item>
+                     </div>
+                     <br> 
+                     <div class="md-title blue" layout="row" layout-align="space-around" >Package Expiry Budget</div>
+                     <div>
+                        <!-- <md-list-item> <p class="blue">Expire Package Tenure</p>	<input type="text" numbersonly="numbersonly" class="txtBox" ng-model="pkgexpireArr.Delhi.expday" />	</md-list-item> --> 
+                        <md-list-item>
+                           <p class="blue">Expire Package 1 Year Budget</p>
+                           <input type="text" numbersonly="numbersonly" class="txtBox" ng-model="pkgexpireArr.Delhi.exp1yrbdgt" />	
+                        </md-list-item>
+                        <md-list-item>
+                           <p class="blue">Expire Package 2 Year Budget</p>
+                           <input type="text" numbersonly="numbersonly" class="txtBox" ng-model="pkgexpireArr.Delhi.exp2yrbdgt" />	
+                        </md-list-item>
+                     </div>
+                     <br> 
+                     <div class="md-title blue" layout="row" layout-align="space-around">Team Wise Budget</div>
+                     <div ng-repeat="(key,value) in pkgTier1Bdgt.data.Delhi">
+                        <md-list-item>
+                           <p class="blue">{{pkgbdgtArr.Delhi[key].teamnm}}</p>
+                           <input type="text" numbersonly="numbersonly" class="txtBox" ng-model="pkgbdgtArr.Delhi[key].bdgt" />	
+                        </md-list-item>
+                     </div>
+                     <md-button ng-if="save_btn == '1'" class="md-fab addData" aria-label="Eat cake" ng-click="submitTier1Package($event)" style="font-weight:bold;">Save</md-button>
+                  </div>
+                  <!------------------------------------------------------ KOLKATA --------------------------------------------------------------> 
+                  <div ng-if="selectedCity == 'Kolkata'">
+                     <div class="md-title blue" layout="row" layout-align="space-around" >Category Wise Budget</div>
+                     <div>
+                        <md-list-item>
+                           <p class="blue">Top 200 Category Budget</p>
+                           <input type="text" numbersonly="numbersonly" class="txtBox" ng-model="pkgcattypeArr.Kolkata.top200" />	
+                        </md-list-item>
+                        <md-list-item>
+                           <p class="blue">Normal Category Budget</p>
+                           <input type="text" numbersonly="numbersonly" class="txtBox" ng-model="pkgcattypeArr.Kolkata.normal" />	
+                        </md-list-item>
+                     </div>
+                     <br> 
+                     <div class="md-title blue" layout="row" layout-align="space-around" >Package Expiry Budget</div>
+                     <div>
+                        <!-- <md-list-item> <p class="blue">Expire Package Tenure</p>	<input type="text" numbersonly="numbersonly" class="txtBox" ng-model="pkgexpireArr.Kolkata.expday" />	</md-list-item> --> 
+                        <md-list-item>
+                           <p class="blue">Expire Package 1 Year Budget</p>
+                           <input type="text" numbersonly="numbersonly" class="txtBox" ng-model="pkgexpireArr.Kolkata.exp1yrbdgt" />	
+                        </md-list-item>
+                        <md-list-item>
+                           <p class="blue">Expire Package 2 Year Budget</p>
+                           <input type="text" numbersonly="numbersonly" class="txtBox" ng-model="pkgexpireArr.Kolkata.exp2yrbdgt" />	
+                        </md-list-item>
+                     </div>
+                     <br> 
+                     <div class="md-title blue" layout="row" layout-align="space-around">Team Wise Budget</div>
+                     <div ng-repeat="(key,value) in pkgTier1Bdgt.data.Kolkata">
+                        <md-list-item>
+                           <p class="blue">{{pkgbdgtArr.Kolkata[key].teamnm}}</p>
+                           <input type="text" numbersonly="numbersonly" class="txtBox" ng-model="pkgbdgtArr.Kolkata[key].bdgt" />	
+                        </md-list-item>
+                     </div>
+                     <md-button ng-if="save_btn == '1'" class="md-fab addData" aria-label="Eat cake" ng-click="submitTier1Package($event)" style="font-weight:bold;">Save</md-button>
+                  </div>
+                  <!------------------------------------------------------ BANGALORE --------------------------------------------------------------> 
+                  <div ng-if="selectedCity == 'Bangalore'">
+                     <div class="md-title blue" layout="row" layout-align="space-around" >Category Wise Budget</div>
+                     <div>
+                        <md-list-item>
+                           <p class="blue">Top 200 Category Budget</p>
+                           <input type="text" numbersonly="numbersonly" class="txtBox" ng-model="pkgcattypeArr.Bangalore.top200" />	
+                        </md-list-item>
+                        <md-list-item>
+                           <p class="blue">Normal Category Budget</p>
+                           <input type="text" numbersonly="numbersonly" class="txtBox" ng-model="pkgcattypeArr.Bangalore.normal" />	
+                        </md-list-item>
+                     </div>
+                     <br> 
+                     <div class="md-title blue" layout="row" layout-align="space-around" >Package Expiry Budget</div>
+                     <div>
+                        <!-- <md-list-item> <p class="blue">Expire Package Tenure</p>	<input type="text" numbersonly="numbersonly" class="txtBox" ng-model="pkgexpireArr.Bangalore.expday" /> </md-list-item> --> 
+                        <md-list-item>
+                           <p class="blue">Expire Package 1 Year Budget</p>
+                           <input type="text" numbersonly="numbersonly" class="txtBox" ng-model="pkgexpireArr.Bangalore.exp1yrbdgt" /> 
+                        </md-list-item>
+                        <md-list-item>
+                           <p class="blue">Expire Package 2 Year Budget</p>
+                           <input type="text" numbersonly="numbersonly" class="txtBox" ng-model="pkgexpireArr.Bangalore.exp2yrbdgt" /> 
+                        </md-list-item>
+                     </div>
+                     <br> 
+                     <div class="md-title blue" layout="row" layout-align="space-around">Team Wise Budget</div>
+                     <div ng-repeat="(key,value) in pkgTier1Bdgt.data.Bangalore">
+                        <md-list-item>
+                           <p class="blue">{{pkgbdgtArr.Bangalore[key].teamnm}}</p>
+                           <input type="text" numbersonly="numbersonly" class="txtBox" ng-model="pkgbdgtArr.Bangalore[key].bdgt" />	
+                        </md-list-item>
+                     </div>
+                     <md-button ng-if="save_btn == '1'" class="md-fab addData" aria-label="Eat cake" ng-click="submitTier1Package($event)" style="font-weight:bold;">Save</md-button>
+                  </div>
+                  <!------------------------------------------------------ CHENNAI --------------------------------------------------------------> 
+                  <div ng-if="selectedCity == 'Chennai'">
+                     <div class="md-title blue" layout="row" layout-align="space-around" >Category Wise Budget</div>
+                     <div>
+                        <md-list-item>
+                           <p class="blue">Top 200 Category Budget</p>
+                           <input type="text" numbersonly="numbersonly" class="txtBox" ng-model="pkgcattypeArr.Chennai.top200" />	
+                        </md-list-item>
+                        <md-list-item>
+                           <p class="blue">Normal Category Budget</p>
+                           <input type="text" numbersonly="numbersonly" class="txtBox" ng-model="pkgcattypeArr.Chennai.normal" />	
+                        </md-list-item>
+                     </div>
+                     <br> 
+                     <div class="md-title blue" layout="row" layout-align="space-around" >Package Expiry Budget</div>
+                     <div>
+                        <!-- <md-list-item> <p class="blue">Expire Package Tenure</p>	<input type="text" numbersonly="numbersonly" class="txtBox" ng-model="pkgexpireArr.Chennai.expday" />	</md-list-item> --> 
+                        <md-list-item>
+                           <p class="blue">Expire Package 1 Year Budget</p>
+                           <input type="text" numbersonly="numbersonly" class="txtBox" ng-model="pkgexpireArr.Chennai.exp1yrbdgt" />	
+                        </md-list-item>
+                        <md-list-item>
+                           <p class="blue">Expire Package 2 Year Budget</p>
+                           <input type="text" numbersonly="numbersonly" class="txtBox" ng-model="pkgexpireArr.Chennai.exp2yrbdgt" />	
+                        </md-list-item>
+                     </div>
+                     <br> 
+                     <div class="md-title blue" layout="row" layout-align="space-around">Team Wise Budget</div>
+                     <div ng-repeat="(key,value) in pkgTier1Bdgt.data.Chennai">
+                        <md-list-item>
+                           <p class="blue">{{pkgbdgtArr.Chennai[key].teamnm}}</p>
+                           <input type="text" numbersonly="numbersonly" class="txtBox" ng-model="pkgbdgtArr.Chennai[key].bdgt" />	
+                        </md-list-item>
+                     </div>
+                     <md-button ng-if="save_btn == '1'" class="md-fab addData" aria-label="Eat cake" ng-click="submitTier1Package($event)" style="font-weight:bold;">Save</md-button>
+                  </div>
+                  <!------------------------------------------------------ PUNE --------------------------------------------------------------> 
+                  <div ng-if="selectedCity == 'Pune'">
+                     <div class="md-title blue" layout="row" layout-align="space-around" >Category Wise Budget</div>
+                     <div>
+                        <md-list-item>
+                           <p class="blue">Top 200 Category Budget</p>
+                           <input type="text" numbersonly="numbersonly" class="txtBox" ng-model="pkgcattypeArr.Pune.top200" />	
+                        </md-list-item>
+                        <md-list-item>
+                           <p class="blue">Normal Category Budget</p>
+                           <input type="text" numbersonly="numbersonly" class="txtBox" ng-model="pkgcattypeArr.Pune.normal" />	
+                        </md-list-item>
+                     </div>
+                     <br> 
+                     <div class="md-title blue" layout="row" layout-align="space-around" >Package Expiry Budget</div>
+                     <div>
+                        <!-- <md-list-item> <p class="blue">Expire Package Tenure</p>	<input type="text" numbersonly="numbersonly" class="txtBox" ng-model="pkgexpireArr.Pune.expday" />	</md-list-item> --> 
+                        <md-list-item>
+                           <p class="blue">Expire Package 1 Year Budget</p>
+                           <input type="text" numbersonly="numbersonly" class="txtBox" ng-model="pkgexpireArr.Pune.exp1yrbdgt" />	
+                        </md-list-item>
+                        <md-list-item>
+                           <p class="blue">Expire Package 2 Year Budget</p>
+                           <input type="text" numbersonly="numbersonly" class="txtBox" ng-model="pkgexpireArr.Pune.exp2yrbdgt" />	
+                        </md-list-item>
+                     </div>
+                     <br> 
+                     <div class="md-title blue" layout="row" layout-align="space-around">Team Wise Budget</div>
+                     <div ng-repeat="(key,value) in pkgTier1Bdgt.data.Pune">
+                        <md-list-item>
+                           <p class="blue">{{pkgbdgtArr.Pune[key].teamnm}}</p>
+                           <input type="text" numbersonly="numbersonly" class="txtBox" ng-model="pkgbdgtArr.Pune[key].bdgt" />	
+                        </md-list-item>
+                     </div>
+                     <md-button ng-if="save_btn == '1'" class="md-fab addData" aria-label="Eat cake" ng-click="submitTier1Package($event)" style="font-weight:bold;">Save</md-button>
+                  </div>
+                  <!------------------------------------------------------ HYDERABAD --------------------------------------------------------------> 
+                  <div ng-if="selectedCity == 'Hyderabad'">
+                     <div class="md-title blue" layout="row" layout-align="space-around" >Category Wise Budget</div>
+                     <div>
+                        <md-list-item>
+                           <p class="blue">Top 200 Category Budget</p>
+                           <input type="text" numbersonly="numbersonly" class="txtBox" ng-model="pkgcattypeArr.Hyderabad.top200" />	
+                        </md-list-item>
+                        <md-list-item>
+                           <p class="blue">Normal Category Budget</p>
+                           <input type="text" numbersonly="numbersonly" class="txtBox" ng-model="pkgcattypeArr.Hyderabad.normal" />	
+                        </md-list-item>
+                     </div>
+                     <br> 
+                     <div class="md-title blue" layout="row" layout-align="space-around" >Package Expiry Budget</div>
+                     <div>
+                        <!-- <md-list-item> <p class="blue">Expire Package Tenure</p>	<input type="text" numbersonly="numbersonly" class="txtBox" ng-model="pkgexpireArr.Hyderabad.expday" />	</md-list-item> --> 
+                        <md-list-item>
+                           <p class="blue">Expire Package 1 Year Budget</p>
+                           <input type="text" numbersonly="numbersonly" class="txtBox" ng-model="pkgexpireArr.Hyderabad.exp1yrbdgt" />	
+                        </md-list-item>
+                        <md-list-item>
+                           <p class="blue">Expire Package 2 Year Budget</p>
+                           <input type="text" numbersonly="numbersonly" class="txtBox" ng-model="pkgexpireArr.Hyderabad.exp2yrbdgt" />	
+                        </md-list-item>
+                     </div>
+                     <br> 
+                     <div class="md-title blue" layout="row" layout-align="space-around">Team Wise Budget</div>
+                     <div ng-repeat="(key,value) in pkgTier1Bdgt.data.Hyderabad">
+                        <md-list-item>
+                           <p class="blue">{{pkgbdgtArr.Hyderabad[key].teamnm}}</p>
+                           <input type="text" numbersonly="numbersonly" class="txtBox" ng-model="pkgbdgtArr.Hyderabad[key].bdgt" />	
+                        </md-list-item>
+                     </div>
+                     <md-button ng-if="save_btn == '1'" class="md-fab addData" aria-label="Eat cake" ng-click="submitTier1Package($event)" style="font-weight:bold;">Save</md-button>
+                  </div>
+                  <!------------------------------------------------------ AHMEDABAD --------------------------------------------------------------> 
+                  <div ng-if="selectedCity == 'Ahmedabad'">
+                     <div class="md-title blue" layout="row" layout-align="space-around" >Category Wise Budget</div>
+                     <div>
+                        <md-list-item>
+                           <p class="blue">Top 200 Category Budget</p>
+                           <input type="text" numbersonly="numbersonly" class="txtBox" ng-model="pkgcattypeArr.Ahmedabad.top200" />	
+                        </md-list-item>
+                        <md-list-item>
+                           <p class="blue">Normal Category Budget</p>
+                           <input type="text" numbersonly="numbersonly" class="txtBox" ng-model="pkgcattypeArr.Ahmedabad.normal" />	
+                        </md-list-item>
+                     </div>
+                     <br> 
+                     <div class="md-title blue" layout="row" layout-align="space-around" >Package Expiry Budget</div>
+                     <div>
+                        <!-- <md-list-item> <p class="blue">Expire Package Tenure</p>	<input type="text" numbersonly="numbersonly" class="txtBox" ng-model="pkgexpireArr.Ahmedabad.expday" />	</md-list-item> --> 
+                        <md-list-item>
+                           <p class="blue">Expire Package 1 Year Budget</p>
+                           <input type="text" numbersonly="numbersonly" class="txtBox" ng-model="pkgexpireArr.Ahmedabad.exp1yrbdgt" />	
+                        </md-list-item>
+                        <md-list-item>
+                           <p class="blue">Expire Package 2 Year Budget</p>
+                           <input type="text" numbersonly="numbersonly" class="txtBox" ng-model="pkgexpireArr.Ahmedabad.exp2yrbdgt" />	
+                        </md-list-item>
+                     </div>
+                     <br> 
+                     <div class="md-title blue" layout="row" layout-align="space-around">Team Wise Budget</div>
+                     <div ng-repeat="(key,value) in pkgTier1Bdgt.data.Ahmedabad">
+                        <md-list-item>
+                           <p class="blue">{{pkgbdgtArr.Ahmedabad[key].teamnm}}</p>
+                           <input type="text" numbersonly="numbersonly" class="txtBox" ng-model="pkgbdgtArr.Ahmedabad[key].bdgt" />	
+                        </md-list-item>
+                     </div>
+                     <md-button ng-if="save_btn == '1'" class="md-fab addData" aria-label="Eat cake" ng-click="submitTier1Package($event)" style="font-weight:bold;">Save</md-button>
+                  </div>
+                  <!------------------------------------------------------ CHANDIGARH --------------------------------------------------------------> 
+                  <div ng-if="selectedCity == 'Chandigarh'">
+                     <div class="md-title blue" layout="row" layout-align="space-around" >Category Wise Budget</div>
+                     <div>
+                        <md-list-item>
+                           <p class="blue">Top 200 Category Budget</p>
+                           <input type="text" numbersonly="numbersonly" class="txtBox" ng-model="pkgcattypeArr.Chandigarh.top200" />	
+                        </md-list-item>
+                        <md-list-item>
+                           <p class="blue">Normal Category Budget</p>
+                           <input type="text" numbersonly="numbersonly" class="txtBox" ng-model="pkgcattypeArr.Chandigarh.normal" />	
+                        </md-list-item>
+                     </div>
+                     <br> 
+                     <div class="md-title blue" layout="row" layout-align="space-around" >Package Expiry Budget</div>
+                     <div>
+                        <!-- <md-list-item> <p class="blue">Expire Package Tenure</p>	<input type="text" numbersonly="numbersonly" class="txtBox" ng-model="pkgexpireArr.Chandigarh.expday" />	</md-list-item> --> 
+                        <md-list-item>
+                           <p class="blue">Expire Package 1 Year Budget</p>
+                           <input type="text" numbersonly="numbersonly" class="txtBox" ng-model="pkgexpireArr.Chandigarh.exp1yrbdgt" />	
+                        </md-list-item>
+                        <md-list-item>
+                           <p class="blue">Expire Package 2 Year Budget</p>
+                           <input type="text" numbersonly="numbersonly" class="txtBox" ng-model="pkgexpireArr.Chandigarh.exp2yrbdgt" /> 
+                        </md-list-item>
+                     </div>
+                     <br> 
+                     <div class="md-title blue" layout="row" layout-align="space-around">Team Wise Budget</div>
+                     <div ng-repeat="(key,value) in pkgTier1Bdgt.data.Chandigarh">
+                        <md-list-item>
+                           <p class="blue">{{pkgbdgtArr.Chandigarh[key].teamnm}}</p>
+                           <input type="text" numbersonly="numbersonly" class="txtBox" ng-model="pkgbdgtArr.Chandigarh[key].bdgt" />	
+                        </md-list-item>
+                     </div>
+                     <md-button ng-if="save_btn == '1'" class="md-fab addData" aria-label="Eat cake" ng-click="submitTier1Package($event)" style="font-weight:bold;">Save</md-button>
+                  </div>
+                  <!------------------------------------------------------ COIMBATORE --------------------------------------------------------------> 
+                  <div ng-if="selectedCity == 'Coimbatore'">
+                     <div class="md-title blue" layout="row" layout-align="space-around" >Category Wise Budget</div>
+                     <div>
+                        <md-list-item>
+                           <p class="blue">Top 200 Category Budget</p>
+                           <input type="text" numbersonly="numbersonly" class="txtBox" ng-model="pkgcattypeArr.Coimbatore.top200" />	
+                        </md-list-item>
+                        <md-list-item>
+                           <p class="blue">Normal Category Budget</p>
+                           <input type="text" numbersonly="numbersonly" class="txtBox" ng-model="pkgcattypeArr.Coimbatore.normal" />	
+                        </md-list-item>
+                     </div>
+                     <br> 
+                     <div class="md-title blue" layout="row" layout-align="space-around" >Package Expiry Budget</div>
+                     <div>
+                        <!-- <md-list-item> <p class="blue">Expire Package Tenure</p>	<input type="text" numbersonly="numbersonly" class="txtBox" ng-model="pkgexpireArr.Coimbatore.expday" />	</md-list-item> --> 
+                        <md-list-item>
+                           <p class="blue">Expire Package 1 Year Budget</p>
+                           <input type="text" numbersonly="numbersonly" class="txtBox" ng-model="pkgexpireArr.Coimbatore.exp1yrbdgt" />	
+                        </md-list-item>
+                        <md-list-item>
+                           <p class="blue">Expire Package 2 Year Budget</p>
+                           <input type="text" numbersonly="numbersonly" class="txtBox" ng-model="pkgexpireArr.Coimbatore.exp2yrbdgt" />	
+                        </md-list-item>
+                     </div>
+                     <br> 
+                     <div class="md-title blue" layout="row" layout-align="space-around">Team Wise Budget</div>
+                     <div ng-repeat="(key,value) in pkgTier1Bdgt.data.Coimbatore">
+                        <md-list-item>
+                           <p class="blue">{{pkgbdgtArr.Coimbatore[key].teamnm}}</p>
+                           <input type="text" numbersonly="numbersonly" class="txtBox" ng-model="pkgbdgtArr.Coimbatore[key].bdgt" />	
+                        </md-list-item>
+                     </div>
+                     <md-button ng-if="save_btn == '1'" class="md-fab addData" aria-label="Eat cake" ng-click="submitTier1Package($event)" style="font-weight:bold;">Save</md-button>
+                  </div>
+                  <!------------------------------------------------------ JAIPUR --------------------------------------------------------------> 
+                  <div ng-if="selectedCity == 'Jaipur'">
+                     <div class="md-title blue" layout="row" layout-align="space-around" >Category Wise Budget</div>
+                     <div>
+                        <md-list-item>
+                           <p class="blue">Top 200 Category Budget</p>
+                           <input type="text" numbersonly="numbersonly" class="txtBox" ng-model="pkgcattypeArr.Jaipur.top200" />	
+                        </md-list-item>
+                        <md-list-item>
+                           <p class="blue">Normal Category Budget</p>
+                           <input type="text" numbersonly="numbersonly" class="txtBox" ng-model="pkgcattypeArr.Jaipur.normal" />	
+                        </md-list-item>
+                     </div>
+                     <br> 
+                     <div class="md-title blue" layout="row" layout-align="space-around" >Package Expiry Budget</div>
+                     <div>
+                        <!-- <md-list-item> <p class="blue">Expire Package Tenure</p>	<input type="text" numbersonly="numbersonly" class="txtBox" ng-model="pkgexpireArr.Jaipur.expday" />	</md-list-item> --> 
+                        <md-list-item>
+                           <p class="blue">Expire Package 1 Year Budget</p>
+                           <input type="text" numbersonly="numbersonly" class="txtBox" ng-model="pkgexpireArr.Jaipur.exp1yrbdgt" />	
+                        </md-list-item>
+                        <md-list-item>
+                           <p class="blue">Expire Package 2 Year Budget</p>
+                           <input type="text" numbersonly="numbersonly" class="txtBox" ng-model="pkgexpireArr.Jaipur.exp2yrbdgt" />	
+                        </md-list-item>
+                     </div>
+                     <br> 
+                     <div class="md-title blue" layout="row" layout-align="space-around">Team Wise Budget</div>
+                     <div ng-repeat="(key,value) in pkgTier1Bdgt.data.Jaipur">
+                        <md-list-item>
+                           <p class="blue">{{pkgbdgtArr.Jaipur[key].teamnm}}</p>
+                           <input type="text" numbersonly="numbersonly" class="txtBox" ng-model="pkgbdgtArr.Jaipur[key].bdgt" />	
+                        </md-list-item>
+                     </div>
+                     <md-button ng-if="save_btn == '1'" class="md-fab addData" aria-label="Eat cake" ng-click="submitTier1Package($event)" style="font-weight:bold;">Save</md-button>
+                  </div>
+               </div>
+               <div ng-if="pkgTier1Bdgt.errorcode == 1">
+                  <br><br>
+                  <div class="md-title" layout="row" layout-align="space-around"><span class="errorMsg">Error Found in Package Tier 1 Budget API</span></div>
+               </div>
+               <div ng-if="remote_tier2 == '1' || remote_tier3 == '1'">
+                  <!------------------------------------------------------ REMOTE TIER 2 --------------------------------------------------------------> 
+                  <div ng-if="remote_tier2 == '1'">
+                     <md-list-item>
+                        <p class="blue">Select Budget Type *</p>
+                        <select name="tier2BdgtSel" id="tier2BdgtSel" class="styled_select" ng-model="tier2bdgtType" ng-change="tire2BudgetSel($event)">
+                           <option value="">Select</option>
+                           <option value="Category Wise Budget">Category Wise Budget</option>
+                           <option value="Team Wise Budget">Team Wise Budget</option>
+                           <option value="Package Expiry Budget">Package Expiry Budget</option>
+                        </select>
+                     </md-list-item>
+                     <br> 
+                     <div ng-if="selectedTier2BdgtType == 'Category Wise Budget' && pkgTier2CatBdgtFlg == 1">
+                        <md-list-item>
+                           <p class="blue">Top 200 Category Budget</p>
+                           <input type="text" numbersonly="numbersonly" class="txtBox" ng-model="pkgTier2CatBdgt.top200" />	
+                        </md-list-item>
+                        <md-list-item>
+                           <p class="blue">Normal Category Budget</p>
+                           <input type="text" numbersonly="numbersonly" class="txtBox" ng-model="pkgTier2CatBdgt.normal" />	
+                        </md-list-item>
+                        <div ng-if="pkgtier2_citydiffbdgt == 1">
+                           <br> 
+                           <md-toolbar class="md-warn" style="background-color:#3f50c7; color: white; min-height: 0px;height:40px;">
+                              <div class="md-toolbar-tools" style="min-height:0px;">
+                                 <h2 class="md-flex">Difference In City Budget</h2>
+                              </div>
+                           </md-toolbar>
+                           <md-content flex layout-padding style="padding: 0px;">
+                              <p>Following city/s under Remote City - Tier 2 having different budget. In order to apply the above entered budget for these city/s. Kindly uncheck the checkbox.</p>
+                           </md-content>
+                           <div ng-repeat="(key,value) in pkgTier2CatDiffBdgt">
+                              <md-list-item style="background-color: #eeeeee">
+                                 <p class="blue" style="font-weight:bold;">{{key}}</p>
+                                 <md-checkbox aria-label="Disabled checked checkbox" ng-model="tier2diffCity[key]" class="md-primary" style="margin:0;margin-left:8px;" ></md-checkbox>
+                              </md-list-item>
+                              <md-list-item>
+                                 <p class="blue">Top 200 Category Budget</p>
+                                 <input type="text" numbersonly="numbersonly" readonly class="txtBox" ng-model="value.top" />	
+                              </md-list-item>
+                              <md-list-item>
+                                 <p class="blue">Normal Category Budget</p>
+                                 <input type="text" numbersonly="numbersonly" readonly class="txtBox" ng-model="value.norm" />	
+                              </md-list-item>
+                           </div>
+                        </div>
+                        <md-button ng-if="save_btn == '1'" class="md-fab addData" aria-label="Eat cake" ng-click="submitTier2Package('catwise',$event)" style="font-weight:bold;">Save</md-button>
+                     </div>
+                     <div ng-if="selectedTier2BdgtType == 'Package Expiry Budget' && pkgTier2ExpBdgtFlg == 1">
+                        <!-- <md-list-item> <p class="blue">Expire Package Tenure</p>	<input type="text" numbersonly="numbersonly" class="txtBox" ng-model="pkgTier2ExpBdgt.tenure" />	</md-list-item> --> 
+                        <md-list-item>
+                           <p class="blue">Expire Package 1 Year Budget</p>
+                           <input type="text" numbersonly="numbersonly" class="txtBox" ng-model="pkgTier2ExpBdgt.oneyrbdgt" />	
+                        </md-list-item>
+                        <md-list-item>
+                           <p class="blue">Expire Package 2 Year Budget</p>
+                           <input type="text" numbersonly="numbersonly" class="txtBox" ng-model="pkgTier2ExpBdgt.twoyrbdgt" />	
+                        </md-list-item>
+                        <div ng-if="pkgtier2_expdiffbdgt == 1">
+                           <br> 
+                           <md-toolbar class="md-warn" style="background-color:#3f50c7; color: white; min-height: 0px;height:40px;">
+                              <div class="md-toolbar-tools" style="min-height:0px;">
+                                 <h2 class="md-flex">Difference In City Budget</h2>
+                              </div>
+                           </md-toolbar>
+                           <md-content flex layout-padding style="padding: 0px;">
+                              <p>Following city/s under Remote City - Tier 2 having difference in 1 Yr budget / 2 Yr budget. In order to apply the above entered budget for these city/s. Kindly uncheck the checkbox.</p>
+                           </md-content>
+                           <div ng-repeat="(key,value) in pkgTier2ExpDiffBdgt">
+                              <md-list-item style="background-color: #eeeeee">
+                                 <p class="blue" style="font-weight:bold;">{{key}}</p>
+                                 <md-checkbox aria-label="Disabled checked checkbox" ng-model="tier2ExpdiffCity[key]" class="md-primary" style="margin:0;margin-left:8px;" ></md-checkbox>
+                              </md-list-item>
+                              <!-- <md-list-item> <p class="blue">Expire Package Tenure</p>	<input type="text" numbersonly="numbersonly" readonly class="txtBox" ng-model="value.tenure" />	</md-list-item> --> 
+                              <md-list-item>
+                                 <p class="blue">Expire Package 1 Year Budget</p>
+                                 <input type="text" numbersonly="numbersonly" readonly class="txtBox" ng-model="value.bdgt1yr" />	
+                              </md-list-item>
+                              <md-list-item>
+                                 <p class="blue">Expire Package 2 Year Budget</p>
+                                 <input type="text" numbersonly="numbersonly" readonly class="txtBox" ng-model="value.bdgt2yr" />	
+                              </md-list-item>
+                           </div>
+                        </div>
+                        <md-button ng-if="save_btn == '1'" class="md-fab addData" aria-label="Eat cake" ng-click="submitTier2Package('expire',$event)" style="font-weight:bold;">Save</md-button>
+                     </div>
+                     <div ng-if="selectedTier2BdgtType == 'Team Wise Budget' && pkgTier2TeamBdgtFlg == 1">
+                        <div ng-repeat="(key,value) in pkgTier2bdgtArr">
+                           <md-list-item>
+                              <p class="blue">{{pkgTier2bdgtArr[key].teamnm}}</p>
+                              <input type="text" numbersonly="numbersonly" class="txtBox" ng-model="pkgTier2bdgtArr[key].bdgt" />	
+                           </md-list-item>
+                        </div>
+                        <md-button ng-if="save_btn == '1'" class="md-fab addData" aria-label="Eat cake" ng-click="submitTier2Package('teamwise',$event)" style="font-weight:bold;">Save</md-button>
+                     </div>
+                  </div>
+                  <!------------------------------------------------------ REMOTE TIER 3 --------------------------------------------------------------> 
+                  <div ng-if="remote_tier3 == '1'">
+                     <md-list-item>
+                        <p class="blue">Select Budget Type *</p>
+                        <select name="tier3BdgtSel" id="tier3BdgtSel" class="styled_select" ng-model="tier3bdgtType" ng-change="tire3BudgetSel($event)">
+                           <option value="">Select</option>
+                           <option value="Category Wise Budget">Category Wise Budget</option>
+                           <option value="Team Wise Budget">Team Wise Budget</option>
+                           <option value="Package Expiry Budget">Package Expiry Budget</option>
+                        </select>
+                     </md-list-item>
+                     <br> 
+                     <div ng-if="selectedTier3BdgtType == 'Category Wise Budget' && pkgTier3CatBdgtFlg == 1">
+                        <md-list-item>
+                           <p class="blue">Top 200 Category Budget</p>
+                           <input type="text" numbersonly="numbersonly" class="txtBox" ng-model="pkgTier3CatBdgt.top200" />	
+                        </md-list-item>
+                        <md-list-item>
+                           <p class="blue">Normal Category Budget</p>
+                           <input type="text" numbersonly="numbersonly" class="txtBox" ng-model="pkgTier3CatBdgt.normal" />	
+                        </md-list-item>
+                        <div ng-if="pkgtier3_citydiffbdgt == 1">
+                           <br> 
+                           <md-toolbar class="md-warn" style="background-color:#3f50c7; color: white; min-height: 0px;height:40px;">
+                              <div class="md-toolbar-tools" style="min-height:0px;">
+                                 <h2 class="md-flex">Difference In City Budget</h2>
+                              </div>
+                           </md-toolbar>
+                           <md-content flex layout-padding style="padding: 0px;">
+                              <p>Following city/s under Remote City - Tier 3 having different budget. In order to apply the above entered budget for these city/s. Kindly uncheck the checkbox.</p>
+                           </md-content>
+                           <div ng-repeat="(key,value) in pkgTier3CatDiffBdgt">
+                              <md-list-item style="background-color: #eeeeee">
+                                 <p class="blue" style="font-weight:bold;">{{key}}</p>
+                                 <md-checkbox aria-label="Disabled checked checkbox" ng-model="tier3diffCity[key]" class="md-primary" style="margin:0;margin-left:8px;" ></md-checkbox>
+                              </md-list-item>
+                              <md-list-item>
+                                 <p class="blue">Top 200 Category Budget</p>
+                                 <input type="text" numbersonly="numbersonly" readonly class="txtBox" ng-model="value.top" />	
+                              </md-list-item>
+                              <md-list-item>
+                                 <p class="blue">Normal Category Budget</p>
+                                 <input type="text" numbersonly="numbersonly" readonly class="txtBox" ng-model="value.norm" />	
+                              </md-list-item>
+                           </div>
+                        </div>
+                        <md-button ng-if="save_btn == '1'" class="md-fab addData" aria-label="Eat cake" ng-click="submitTier3Package('catwise',$event)" style="font-weight:bold;">Save</md-button>
+                     </div>
+                     <div ng-if="selectedTier3BdgtType == 'Package Expiry Budget' && pkgTier3ExpBdgtFlg == 1">
+                        <!-- <md-list-item> <p class="blue">Expire Package Tenure</p>	<input type="text" numbersonly="numbersonly" class="txtBox" ng-model="pkgTier3ExpBdgt.tenure" /> </md-list-item> --> 
+                        <md-list-item>
+                           <p class="blue">Expire Package 1 Year Budget</p>
+                           <input type="text" numbersonly="numbersonly" class="txtBox" ng-model="pkgTier3ExpBdgt.oneyrbdgt" />	
+                        </md-list-item>
+                        <md-list-item>
+                           <p class="blue">Expire Package 2 Year Budget</p>
+                           <input type="text" numbersonly="numbersonly" class="txtBox" ng-model="pkgTier3ExpBdgt.twoyrbdgt" />	
+                        </md-list-item>
+                        <div ng-if="pkgtier3_expdiffbdgt == 1">
+                           <br> 
+                           <md-toolbar class="md-warn" style="background-color:#3f50c7; color: white; min-height: 0px;height:40px;">
+                              <div class="md-toolbar-tools" style="min-height:0px;">
+                                 <h2 class="md-flex">Difference In City Budget</h2>
+                              </div>
+                           </md-toolbar>
+                           <md-content flex layout-padding style="padding: 0px;">
+                              <p>Following city/s under Remote City - Tier 2 having difference in 1 Yr budget / 2 Yr budget. In order to apply the above entered budget for these city/s. Kindly uncheck the checkbox.</p>
+                           </md-content>
+                           <div ng-repeat="(key,value) in pkgTier3ExpDiffBdgt">
+                              <md-list-item style="background-color: #eeeeee">
+                                 <p class="blue" style="font-weight:bold;">{{key}}</p>
+                                 <md-checkbox aria-label="Disabled checked checkbox" ng-model="tier3ExpdiffCity[key]" class="md-primary" style="margin:0;margin-left:8px;" ></md-checkbox>
+                              </md-list-item>
+                              <!-- <md-list-item> <p class="blue">Expire Package Tenure</p>	<input type="text" numbersonly="numbersonly" readonly class="txtBox" ng-model="value.tenure" />	</md-list-item> --> 
+                              <md-list-item>
+                                 <p class="blue">Expire Package 1 Year Budget</p>
+                                 <input type="text" numbersonly="numbersonly" readonly class="txtBox" ng-model="value.bdgt1yr" />	
+                              </md-list-item>
+                              <md-list-item>
+                                 <p class="blue">Expire Package 2 Year Budget</p>
+                                 <input type="text" numbersonly="numbersonly" readonly class="txtBox" ng-model="value.bdgt2yr" />	
+                              </md-list-item>
+                           </div>
+                        </div>
+                        <md-button ng-if="save_btn == '1'" class="md-fab addData" aria-label="Eat cake" ng-click="submitTier3Package('expire',$event)" style="font-weight:bold;">Save</md-button>
+                     </div>
+                     <div ng-if="selectedTier3BdgtType == 'Team Wise Budget' && pkgTier3TeamBdgtFlg == 1">
+                        <div ng-repeat="(key,value) in pkgTier3bdgtArr">
+                           <md-list-item>
+                              <p class="blue">{{pkgTier3bdgtArr[key].teamnm}}</p>
+                              <input type="text" numbersonly="numbersonly" class="txtBox" ng-model="pkgTier3bdgtArr[key].bdgt" />	
+                           </md-list-item>
+                        </div>
+                        <md-button ng-if="save_btn == '1'" class="md-fab addData" aria-label="Eat cake" ng-click="submitTier3Package('teamwise',$event)" style="font-weight:bold;">Save</md-button>
+                     </div>
+                  </div>
+               </div>
+               <!------------------------------------------------------ ZONE WISE --------------------------------------------------------------> 
+               <div ng-if="zone_wise == '1'">
+                  <br> 
+                  <md-list-item>
+                     <p class="blue">Select Remote Zone *</p>
+                     <select name="zone_name" id="zone_name" class="styled_select" ng-model="selZone" ng-change="zoneCitySel($event)">
+                        <option value="">Select</option>
+                        <option ng-repeat="zone in pkgzonelist" value="{{zone}}" >{{zone}}</option>
+                     </select>
+                  </md-list-item>
+                  <br> 
+                  <div ng-if="selectedZoneFlg == 1">
+                     <md-list-item>
+                        <p class="blue">Select Budget Type *</p>
+                        <select name="zoneBdgtSel" id="zoneBdgtSel" class="styled_select" ng-model="zonebdgtType[0]" ng-change="zoneBudgetSel($event)">
+                           <option value="">Select</option>
+                           <option value="Category Wise Budget">Category Wise Budget</option>
+                           <option value="Team Wise Budget">Team Wise Budget</option>
+                           <option value="Package Expiry Budget">Package Expiry Budget</option>
+                        </select>
+                     </md-list-item>
+                     <div ng-if="selectedZoneBdgtType == 'Category Wise Budget' && pkgZoneCatBdgtFlg == 1">
+                        <br> 
+                        <md-list-item>
+                           <p class="blue" style="font-weight:bold;text-align:center;">Category Wise Budget - {{selectedZoneName}} Zone</p>
+                        </md-list-item>
+                        <br> 
+                        <md-list-item>
+                           <p class="blue">Top 200 Category Budget</p>
+                           <input type="text" numbersonly="numbersonly" class="txtBox" ng-model="pkgZoneCatBdgt.top200" />	
+                        </md-list-item>
+                        <md-list-item>
+                           <p class="blue">Normal Category Budget</p>
+                           <input type="text" numbersonly="numbersonly" class="txtBox" ng-model="pkgZoneCatBdgt.normal" />	
+                        </md-list-item>
+                        <div ng-if="pkgzone_citydiffbdgt == 1">
+                           <br> 
+                           <md-toolbar class="md-warn" style="background-color:#3f50c7; color: white; min-height: 0px;height:40px;">
+                              <div class="md-toolbar-tools" style="min-height:0px;">
+                                 <h2 class="md-flex">Difference In City Budget - {{selectedZoneName}} Zone</h2>
+                              </div>
+                           </md-toolbar>
+                           <md-content flex layout-padding style="padding: 0px;">
+                              <p>Following city/s under {{selectedZoneName}} Zone having different budget. In order to apply the above entered budget for these city/s. Kindly uncheck the checkbox.</p>
+                           </md-content>
+                           <div ng-repeat="(key,value) in pkgZoneCatDiffBdgt">
+                              <md-list-item style="background-color: #eeeeee">
+                                 <p class="blue" style="font-weight:bold;">{{key}}</p>
+                                 <md-checkbox aria-label="Disabled checked checkbox" ng-model="zonediffCity[key]" class="md-primary" style="margin:0;margin-left:8px;" ></md-checkbox>
+                              </md-list-item>
+                              <md-list-item>
+                                 <p class="blue">Top 200 Category Budget</p>
+                                 <input type="text" numbersonly="numbersonly" readonly class="txtBox" ng-model="value.top" />	
+                              </md-list-item>
+                              <md-list-item>
+                                 <p class="blue">Normal Category Budget</p>
+                                 <input type="text" numbersonly="numbersonly" readonly class="txtBox" ng-model="value.norm" />	
+                              </md-list-item>
+                           </div>
+                        </div>
+                        <md-button ng-if="save_btn == '1'" class="md-fab addData" aria-label="Eat cake" ng-click="submitZonePackage('catwise',$event)" style="font-weight:bold;">Save</md-button>
+                     </div>
+                     <div ng-if="selectedZoneBdgtType == 'Team Wise Budget' && pkgZoneTeamBdgtFlg == 1">
+                        <br> 
+                        <md-list-item>
+                           <p class="blue" style="font-weight:bold;text-align:center;">Team Wise Budget - {{selectedZoneName}} Zone</p>
+                        </md-list-item>
+                        <br> 
+                        <div ng-repeat="(key,value) in pkgZonebdgtArr">
+                           <md-list-item>
+                              <p class="blue">{{pkgZonebdgtArr[key].teamnm}}</p>
+                              <input type="text" numbersonly="numbersonly" class="txtBox" ng-model="pkgZonebdgtArr[key].bdgt" />	
+                           </md-list-item>
+                        </div>
+                        <md-button ng-if="save_btn == '1'" class="md-fab addData" aria-label="Eat cake" ng-click="submitZonePackage('teamwise',$event)" style="font-weight:bold;">Save</md-button>
+                     </div>
+                     <div ng-if="selectedZoneBdgtType == 'Package Expiry Budget' && pkgZoneExpBdgtFlg == 1">
+                        <br> 
+                        <md-list-item>
+                           <p class="blue" style="font-weight:bold;text-align:center;">Package Expiry Budget - {{selectedZoneName}} Zone</p>
+                        </md-list-item>
+                        <!-- <md-list-item> <p class="blue">Expire Package Tenure</p>	<input type="text" numbersonly="numbersonly" class="txtBox" ng-model="pkgZoneExpBdgt.tenure" />	</md-list-item> --> 
+                        <md-list-item>
+                           <p class="blue">Expire Package 1 Year Budget</p>
+                           <input type="text" numbersonly="numbersonly" class="txtBox" ng-model="pkgZoneExpBdgt.oneyrbdgt" /> 
+                        </md-list-item>
+                        <md-list-item>
+                           <p class="blue">Expire Package 2 Year Budget</p>
+                           <input type="text" numbersonly="numbersonly" class="txtBox" ng-model="pkgZoneExpBdgt.twoyrbdgt" />	
+                        </md-list-item>
+                        <div ng-if="pkgzone_expdiffbdgt == 1">
+                           <br> 
+                           <md-toolbar class="md-warn" style="background-color:#3f50c7; color: white; min-height: 0px;height:40px;">
+                              <div class="md-toolbar-tools" style="min-height:0px;">
+                                 <h2 class="md-flex">Difference In City Budget</h2>
+                              </div>
+                           </md-toolbar>
+                           <md-content flex layout-padding style="padding: 0px;">
+                              <p>Following city/s under {{selectedZoneName}} Zone having difference in 1 Yr budget / 2 Yr budget. In order to apply the above entered budget for these city/s. Kindly uncheck the checkbox.</p>
+                           </md-content>
+                           <div ng-repeat="(key,value) in pkgZoneExpDiffBdgt">
+                              <md-list-item style="background-color: #eeeeee">
+                                 <p class="blue" style="font-weight:bold;">{{key}}</p>
+                                 <md-checkbox aria-label="Disabled checked checkbox" ng-model="zoneExpdiffCity[key]" class="md-primary" style="margin:0;margin-left:8px;" ></md-checkbox>
+                              </md-list-item>
+                              <!-- <md-list-item> <p class="blue">Expire Package Tenure</p>	<input type="text" numbersonly="numbersonly" readonly class="txtBox" ng-model="value.tenure" />	</md-list-item> --> 
+                              <md-list-item>
+                                 <p class="blue">Expire Package 1 Year Budget</p>
+                                 <input type="text" numbersonly="numbersonly" readonly class="txtBox" ng-model="value.bdgt1yr" />	
+                              </md-list-item>
+                              <md-list-item>
+                                 <p class="blue">Expire Package 2 Year Budget</p>
+                                 <input type="text" numbersonly="numbersonly" readonly class="txtBox" ng-model="value.bdgt2yr" />	
+                              </md-list-item>
+                           </div>
+                        </div>
+                        <md-button ng-if="save_btn == '1'" class="md-fab addData" aria-label="Eat cake" ng-click="submitZonePackage('expire',$event)" style="font-weight:bold;">Save</md-button>
+                     </div>
+                  </div>
+               </div>
+               <div ng-if="individual_remote == '1'">
+                  <div ng-if="selectedPkgCity ==''">
+                     <center>
+                        <p style="font-size: 22px;" class="blue">Select City to update Remote City Package Budget.</p>
+                        <input type="text" contractcityauto ng-model="cityselcampaign['package']" id="package" class="form-input" style="width: 240px;height:1.5rem;padding: 0 1px 5px 10px;text-transform: capitalize;"> 
+                        <p style="background-color: #3f50c7; color: white; width: 120px; padding: 7px;cursor: pointer;" ng-click="selCityPackage($event)">Submit</p>
+                     </center>
+                  </div>
+                  <div ng-if="selectedPkgCity != ''">
+                     <br> <span style="text-decoration:underline;font-weight:bold;color:purple;" ng-click="changeCityPackage($event);">Change City</span> 
+                     <div class="md-title blue" layout="row" layout-align="space-around" >Package Budget In {{selectedPkgCity | capitalize}}</div>
+                     <div>
+                        <md-list-item>
+                           <p class="blue">Top 200 Category Budget</p>
+                           <input type="text" numbersonly="numbersonly" class="txtBox" ng-model="remoteIndividualPkgBdgt.top200" />	
+                        </md-list-item>
+                        <md-list-item>
+                           <p class="blue">Normal Category Budget</p>
+                           <input type="text" numbersonly="numbersonly" class="txtBox" ng-model="remoteIndividualPkgBdgt.normal" />	
+                        </md-list-item>
+                     </div>
+                     <md-button ng-if="save_btn == '1'" class="md-fab addData" aria-label="Eat cake" ng-click="submitRemoteBudgetPkg($event)" style="font-weight:bold;">Save</md-button>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </section>
+   </div>
+   <div class='floatRight' ng-if="show_log == '1'">
+      <div class="md-toolbar-tools">
+         <md-menu md-position-mode="target-right target">
+            <md-button aria-label="Open phone interactions menu" class="md-icon-button" ng-click="$mdOpenMenu()">
+               <md-icon md-menu-origin md-svg-icon="img/ic_more_vert_36px.svg" style="color:#000000"></md-icon>
+            </md-button>
+            <md-menu-content width="4">
+               <md-menu-item>
+                  <md-button ng-click="pkgMoreOption('pkgbdgtlog',$event)"> Package Budget Log </md-button>
+               </md-menu-item>
+               <md-menu-divider></md-menu-divider>
+               <md-menu-item>
+                  <md-button ng-click="pkgMoreOption('fetcht2pkgbdgt',$event)"> Package Tier 2 Budget </md-button>
+               </md-menu-item>
+               <md-menu-divider></md-menu-divider>
+               <md-menu-item>
+                  <md-button ng-click="pkgMoreOption('fetcht3pkgbdgt',$event)"> Package Tier 3 Budget </md-button>
+               </md-menu-item>
+            </md-menu-content>
+         </md-menu>
+      </div>
+   </div>
+</div>

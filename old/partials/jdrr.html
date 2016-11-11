@@ -1,0 +1,44 @@
+<div class="width100">
+   <div class="floatLeft">
+      <section class="jdrrContainter" subtract="500">
+         <div class="md-padding">
+            <div class="mar0auto width80">
+               <md-list-item>
+                  <p class="blue">Select City *</p>
+                  <select name="jdrrCity" id="jdrrCity" class="styled_select" ng-model="selJdrrCity[0]" ng-change="setJdrrCity($event)">
+                     <option value="">Select</option>
+                     <option ng-repeat="jdrrcity in jdrrcitylist" value="{{jdrrcity}}" >{{jdrrcity}}</option>
+                  </select>
+               </md-list-item>
+               <div ng-if="jddr_budget == 1">
+                  <br> 
+                  <div ng-if="selectedJdrrCity != ''">
+                     <div class="md-title blue" layout="row" layout-align="space-around" >JDRR Budget In {{selectedJdrrCity}}</div>
+                     <div>
+                        <md-list-item>
+                           <p class="blue">Upfront Budget</p>
+                           <input type="text" numbersonly="numbersonly" class="txtBox" ng-model="jdrrBdgt.upfrontbdgt" />	
+                        </md-list-item>
+                     </div>
+                     <md-button ng-if="save_btn == '1'" class="md-fab addData" aria-label="Eat cake" ng-click="submitJdrrBudget($event)" style="font-weight:bold;">Save</md-button>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </section>
+   </div>
+   <div class='floatRight' ng-if="show_log == '1'">
+      <div class="md-toolbar-tools">
+         <md-menu md-position-mode="target-right target">
+            <md-button aria-label="Open phone interactions menu" class="md-icon-button" ng-click="$mdOpenMenu()">
+               <md-icon md-menu-origin md-svg-icon="img/ic_more_vert_36px.svg" style="color:#000000"></md-icon>
+            </md-button>
+            <md-menu-content width="4">
+               <md-menu-item>
+                  <md-button ng-click="jdrrMoreOption('jdrrbdgtlog',$event)"> JDRR Budget Log </md-button>
+               </md-menu-item>
+            </md-menu-content>
+         </md-menu>
+      </div>
+   </div>
+</div>
